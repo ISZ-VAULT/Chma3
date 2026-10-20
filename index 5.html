@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مظاهر الحياة العقلية للعرب في العصر الجاهلي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0c08;--gold:#e0c27a;--silver:#c0c0c0;--copper:#b87333;--gold-dim:rgba(224,194,122,.35);--panel:rgba(224,194,122,.07)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--gold);font-family:'Amiri','Traditional Arabic',serif;overflow:hidden}
+body::before{content:"";position:fixed;inset:0;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 4l9 21 21-9-9 21 21 9-21 9 9 21-21-9-9 21-9-21-21 9 9-21-21-9 21-9-9-21 21 9z' fill='none' stroke='%23e0c27a' stroke-width='1'/%3E%3C/svg%3E")}
+.frame{position:fixed;inset:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom)) 12px;border:1px solid var(--gold);box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--gold-dim),inset 0 0 60px rgba(0,0,0,.6);z-index:5;pointer-events:none}
+.frame i{position:absolute;width:26px;height:26px;border:2px solid var(--gold)}
+.frame i:nth-child(1){top:-2px;right:-2px;border-left:0;border-bottom:0}
+.frame i:nth-child(2){top:-2px;left:-2px;border-right:0;border-bottom:0}
+.frame i:nth-child(3){bottom:-2px;right:-2px;border-left:0;border-top:0}
+.frame i:nth-child(4){bottom:-2px;left:-2px;border-right:0;border-top:0}
+.stage{position:fixed;inset:0;z-index:1}
+.slide{position:absolute;inset:26px;padding:clamp(18px,4vw,48px) clamp(16px,5vw,64px) 84px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateX(-40px) scale(.985);transition:opacity .7s ease,transform .7s ease,visibility 0s .7s;display:flex;flex-direction:column;align-items:center}
+.slide.active{opacity:1;visibility:visible;transform:none;transition:opacity .7s ease,transform .7s ease}
+.slide.prev{transform:translateX(40px) scale(.985)}
+.slide>*{width:100%;max-width:1080px}
+.slide::before,.slide::after{content:"";flex:1 0 0}
+
+/* تحسين شكل السكرول */
+.slide::-webkit-scrollbar { width: 6px; }
+.slide::-webkit-scrollbar-track { background: transparent; }
+.slide::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+h1,h2,h3{font-family:'Reem Kufi','Amiri',serif;font-weight:700;color:var(--gold);text-align:center}
+h2{font-size:clamp(28px,5vw,48px);margin-bottom:6px;text-shadow:0 0 18px rgba(224,194,122,.3)}
+.rule{height:12px;margin:8px auto 22px;max-width:320px;background:linear-gradient(90deg,transparent,var(--gold),transparent) center/100% 1px no-repeat;position:relative}
+.rule::after{content:"◆";position:absolute;left:50%;top:-6px;transform:translateX(-50%);font-size:12px;color:var(--gold);background:var(--bg);padding:0 10px}
+p,li{font-size:clamp(18px,2.6vw,26px);line-height:1.95;color:#ecd9a8}
+.card{background:var(--panel);border:1px solid var(--gold-dim);border-top:2px solid var(--copper);padding:18px 22px;border-radius:4px;backdrop-filter:blur(2px)}
+.card h3{font-size:clamp(22px,3.2vw,30px);margin-bottom:8px;color:var(--gold)}
+.silver{color:var(--silver)}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+.art{width:100%;height:auto;display:block;border:1px solid var(--gold-dim);border-radius:4px;margin-top:14px}
+
+/* cover */
+.cover{text-align:center;justify-content:center}
+.cover .bg{position:absolute;inset:0;z-index:-1}
+.cover .bg svg{width:100%;height:100%;display:block}
+.cover .bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(15,12,8,.55),rgba(15,12,8,.88))}
+.badge{width:clamp(190px,30vw,260px);aspect-ratio:1;border-radius:50%;margin:0 auto 26px;display:grid;place-items:center;border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(15,12,8,.9),0 0 0 7px var(--gold),0 0 40px rgba(224,194,122,.35);background:radial-gradient(circle,rgba(40,30,15,.9),rgba(15,12,8,.95));padding:18px}
+.badge div{font-family:'Reem Kufi',serif;font-size:clamp(24px,4vw,34px);line-height:1.5;color:var(--gold);font-weight:700}
+.badge small{display:block;font-family:'Amiri',serif;font-size:clamp(14px,2vw,18px);color:var(--silver);font-weight:400}
+.cover h1{font-size:clamp(30px,6.2vw,64px);line-height:1.5;text-shadow:0 0 24px rgba(224,194,122,.45)}
+.cover .sub{font-size:clamp(20px,3vw,30px);color:var(--silver);margin-top:10px}
+.cover .sub b{color:var(--gold);font-weight:700}
+
+/* intro */
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+.chip{border:1px solid var(--gold);padding:4px 18px;border-radius:30px;font-size:clamp(17px,2.3vw,22px);color:var(--gold);background:rgba(224,194,122,.08)}
+
+/* proverb */
+.proverb{text-align:center;font-size:clamp(22px,3.4vw,34px);color:var(--gold);line-height:1.8;margin:6px 0}
+.proverb small{display:block;font-size:clamp(16px,2vw,20px);color:var(--silver)}
+.poets{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.poets span{border:1px solid var(--gold-dim);border-bottom:2px solid var(--copper);padding:2px 14px;font-size:clamp(17px,2.2vw,22px);color:var(--gold)}
+
+/* end */
+.end{text-align:center;justify-content:center}
+.end h2{font-size:clamp(36px,7vw,72px);margin-bottom:10px}
+.team{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.team .card{min-width:200px;text-align:center;font-size:clamp(22px,3.4vw,32px);font-family:'Reem Kufi',serif}
+
+/* controls */
+.nav{position:fixed;bottom:max(22px,calc(env(safe-area-inset-bottom) + 16px));left:0;right:0;display:flex;align-items:center;justify-content:center;gap:18px;z-index:10}
+.btn{font-family:'Reem Kufi',serif;font-size:18px;color:var(--gold);background:rgba(15,12,8,.92);border:1px solid var(--gold);padding:8px 22px;cursor:pointer;border-radius:3px;transition:background .25s,color .25s}
+.btn:hover:not(:disabled){background:var(--gold);color:var(--bg)}
+.btn:disabled{opacity:.3;cursor:default}
+.btn:focus-visible,.dot:focus-visible{outline:2px solid var(--silver);outline-offset:3px}
+.dots{display:flex;gap:10px}
+.dot{width:10px;height:10px;transform:rotate(45deg);border:1px solid var(--gold);background:transparent;cursor:pointer;padding:0;transition:background .3s}
+.dot.on{background:var(--gold)}
+
+@media(max-width:760px){.grid,.grid3{grid-template-columns:1fr}.btn{padding:7px 14px;font-size:16px}.slide{inset:22px 14px}}
+
+/* تحسينات الطباعة */
+@media print {
+  body { overflow: visible; background: white; }
+  .frame, .nav { display: none !important; }
+  .stage { position: relative; inset: auto; }
+  .slide { position: relative; inset: auto; opacity: 1 !important; visibility: visible !important; transform: none !important; page-break-after: always; height: 100vh; overflow: hidden; }
+}
+</style>
+</head>
+<body>
+<div class="frame"><i></i><i></i><i></i><i></i></div>
+
+<main class="stage" id="stage">
+
+<!-- 1: الغلاف -->
+<section class="slide cover active">
+  <div class="bg">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050403"/><stop offset=".7" stop-color="#1a130a"/><stop offset="1" stop-color="#2a1d0e"/></linearGradient>
+        <radialGradient id="moon"><stop offset="0" stop-color="#fff4d0"/><stop offset=".5" stop-color="#e0c27a"/><stop offset="1" stop-color="#e0c27a" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1200" height="800" fill="url(#sky)"/>
+      <circle cx="930" cy="190" r="110" fill="url(#moon)" opacity=".5"/>
+      <circle cx="930" cy="190" r="46" fill="#f3dfa2"/>
+      <g fill="#e0c27a">
+        <circle cx="100" cy="90" r="2"/><circle cx="240" cy="160" r="1.5"/><circle cx="360" cy="70" r="2.2"/><circle cx="480" cy="200" r="1.4"/><circle cx="600" cy="110" r="2"/><circle cx="720" cy="60" r="1.5"/><circle cx="800" cy="240" r="1.6"/><circle cx="1080" cy="100" r="2"/><circle cx="1130" cy="260" r="1.4"/><circle cx="170" cy="280" r="1.6"/><circle cx="540" cy="30" r="1.6"/><circle cx="1010" cy="300" r="1.5"/><circle cx="300" cy="320" r="1.2"/>
+      </g>
+      <path d="M0 620 Q200 530 420 600 T820 590 T1200 560 V800 H0z" fill="#241a0d"/>
+      <path d="M0 700 Q260 620 520 690 T1000 670 T1200 700 V800 H0z" fill="#150f07"/>
+      <g fill="#0a0704"><path d="M170 700 l60 -62 l60 62z"/><path d="M850 690 l44 -46 l44 46z"/></g>
+      <path d="M0 760 Q300 720 600 755 T1200 745 V800 H0z" fill="#0a0704"/>
+    </svg>
+  </div>
+  <div class="badge"><div>ثانوية<br>محمد أوكراف<small>★ ★ ★</small></div></div>
+  <h1>مظاهر الحياة العقلية للعرب في العصر الجاهلي</h1>
+  <div class="rule"></div>
+  <p class="sub">المادة: <b>اللغة العربية</b></p>
+</section>
+
+<!-- 2: مقدمة وفهرس -->
+<section class="slide">
+  <h2>مقدمة وفهرس المشروع</h2><div class="rule"></div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3>العصر الجاهلي</h3>
+        <p>هو الحقبة التي سبقت ظهور الإسلام بنحو قرن ونصف في جزيرة العرب، وعُرفت بازدهار الشعر والخطابة والأمثال.</p></div>
+      <div class="card" style="margin-top:16px"><h3>مصادر البحث</h3>
+        <div class="chips"><span class="chip">الكتب والموسوعات</span><span class="chip">دوريات الشرق</span><span class="chip">حنا عتيق</span></div></div>
+    </div>
+    <div class="card" style="display:grid;place-items:center">
+      <svg viewBox="0 0 400 340" style="width:100%;max-height:300px" aria-label="خريطة ذهنية">
+        <g stroke="#e0c27a" stroke-opacity=".6" fill="none"><path d="M200 170L200 45M200 170L90 85M200 170L310 85M200 170L90 255M200 170L310 255M200 170L200 295"/></g>
+        <g font-family="Reem Kufi, Amiri, serif" text-anchor="middle" fill="#e0c27a">
+          <circle cx="200" cy="170" r="48" fill="#0f0c08" stroke="#e0c27a" stroke-width="2"/>
+          <text x="200" y="165" font-size="15">الحياة العقلية</text><text x="200" y="185" font-size="15">للعرب</text>
+          <g font-size="15" fill="#0f0c08" stroke="none">
+            <rect x="150" y="22" width="100" height="32" rx="16" fill="#e0c27a"/><text x="200" y="44">الشعر</text>
+            <rect x="40" y="62" width="100" height="32" rx="16" fill="#e0c27a"/><text x="90" y="84">الخطابة</text>
+            <rect x="260" y="62" width="100" height="32" rx="16" fill="#e0c27a"/><text x="310" y="84">الأمثال</text>
+            <rect x="40" y="232" width="100" height="32" rx="16" fill="#c0c0c0"/><text x="90" y="254">القصص</text>
+            <rect x="260" y="232" width="100" height="32" rx="16" fill="#c0c0c0"/><text x="310" y="254">اللغة</text>
+            <rect x="150" y="280" width="100" height="32" rx="16" fill="#b87333"/><text x="200" y="302">المعلقات</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 3: الشعر والخطابة -->
+<section class="slide">
+  <h2>الشعر الجاهلي والخطابة</h2><div class="rule"></div>
+  <div class="grid">
+    <div class="card"><h3>الشعر الجاهلي</h3>
+      <p>كلام موزون مقفّى، سجّل به العرب فخرهم وحروبهم وغزلهم وحكمتهم، حتى عُدَّ «ديوان العرب».</p>
+      <svg class="art" viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#16110a"/>
+        <rect x="70" y="22" width="260" height="106" rx="6" fill="#e0c27a" opacity=".14" stroke="#e0c27a"/>
+        <rect x="52" y="14" width="22" height="122" rx="11" fill="#b87333"/><rect x="326" y="14" width="22" height="122" rx="11" fill="#b87333"/>
+        <g stroke="#e0c27a" stroke-width="3" stroke-linecap="round" opacity=".8"><path d="M95 50H305M95 70H280M95 90H305M95 110H250"/></g></svg></div>
+    <div class="card"><h3>الخطابة</h3>
+      <p>فنّ مخاطبة الجمهور مشافهةً بقصد الإقناع والتأثير، وتُلقى في الأسواق ومجالس القبائل وساحات الحرب، ومن خطبائهم قسّ بن ساعدة وأكثم بن صيفي.</p>
+      <svg class="art" viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#16110a"/>
+        <circle cx="320" cy="34" r="16" fill="#f3dfa2" opacity=".85"/>
+        <path d="M30 128L110 52L190 128z" fill="#2a1d0e" stroke="#e0c27a"/><path d="M150 128L250 36L350 128z" fill="#3a2813" stroke="#e0c27a"/>
+        <path d="M250 36V128" stroke="#e0c27a" opacity=".5"/><path d="M0 128H400" stroke="#b87333" stroke-width="3"/></svg></div>
+  </div>
+</section>
+
+<!-- 4: الأمثال والقصص -->
+<section class="slide">
+  <h2>الأمثال والقصص</h2><div class="rule"></div>
+  <div class="grid">
+    <div class="card"><h3>الأمثال الجاهلية</h3>
+      <p>أقوال موجزة سائرة، تلخّص تجربة أو حكمة، ويُشبَّه فيها حالُ الموقف الجديد بحال الموقف الذي قيل فيه المثل أول مرة.</p></div>
+    <div class="card"><h3>القصص الجاهلية</h3>
+      <p>حكايات تُروى مشافهةً، منها أيام العرب كحرب البسوس وداحس والغبراء، وأخبار الأمم البائدة كعاد وثمود، وأخبار الفروسية والكرم.</p></div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <div class="proverb">«الصيف ضيّعتِ اللبن»<small>يُضرب لمن فرّط في أمر ثم طلبه بعد فوات أوانه</small></div>
+    <div class="proverb">«على نفسها جنت براقش»<small>يُضرب لمن يجلب الضرر على نفسه بتصرفه</small></div>
+  </div>
+</section>
+
+<!-- 5: الحياة العقلية واللغوية والمعلقات -->
+<section class="slide">
+  <h2>الحياة العقلية واللغوية والمعلقات</h2><div class="rule"></div>
+  <div class="grid grid3">
+    <div class="card"><h3>الحياة العقلية</h3>
+      <p style="font-size:clamp(17px,2.2vw,22px)">ما أنتجه العرب من معارف وخبرات: الشعر والحكمة والأمثال، وعلم الأنساب والأنواء (النجوم) والقيافة.</p></div>
+    <div class="card"><h3>الحياة اللغوية</h3>
+      <p style="font-size:clamp(17px,2.2vw,22px)">لهجات متعددة تجمعها لغة فصحى مشتركة، صقلتها أسواق الأدب كعكاظ والمجنّة وذي المجاز، وكان للسان قريش فيها مكانة.</p></div>
+    <div class="card"><h3>الشعر عندهم: المعلقات</h3>
+      <p style="font-size:clamp(17px,2.2vw,22px)">أشهر قصائدهم وأجودها، سُمّيت بذلك لأنها، في إحدى الروايات، عُلّقت على أستار الكعبة تقديرًا لها.</p></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>شعراء المعلقات السبع</h3>
+    <div class="poets"><span>امرؤ القيس</span><span>طرفة بن العبد</span><span>زهير بن أبي سلمى</span><span>لبيد بن ربيعة</span><span>عمرو بن كلثوم</span><span>عنترة بن شداد</span><span>الحارث بن حلزة</span></div></div>
+</section>
+
+<!-- 6: الخاتمة -->
+<section class="slide end">
+  <h2>شكرًا لحسن استماعكم</h2><div class="rule"></div>
+  <p class="silver" style="text-align:center; margin-bottom: 20px;">فريق العمل</p>
+  <div class="team"><div class="card">شماع محمد</div><div class="card">شماع مؤيد</div></div>
+  <h3 style="font-size:clamp(24px,4vw,38px)">ثانوية محمد أوكراف</h3>
+
+  <!-- التوقيع -->
+  <p style="margin-top: 35px; font-size: 11px; color: rgba(192,192,192,0.4); font-family: 'Reem Kufi', sans-serif; letter-spacing: 2px; text-align: center;">
+    صنع من قبل ISZ
+  </p>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="التنقل بين الشرائح">
+  <button class="btn" id="next">التالي ‹</button>
+  <div class="dots" id="dots"></div>
+  <button class="btn" id="prev">› السابق</button>
+</nav>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),i=0;
+  var dots=document.getElementById('dots'),prev=document.getElementById('prev'),next=document.getElementById('next');
+  
+  slides.forEach(function(_,n){
+    var d=document.createElement('button');d.className='dot';d.setAttribute('aria-label','الشريحة '+(n+1));
+    d.onclick=function(){go(n)};dots.appendChild(d);
+  });
+
+  function go(n){
+    n=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){
+      s.classList.toggle('active',k===n);
+      s.classList.toggle('prev',k<n);
+      s.scrollTop=0;
+    });
+    [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===n)});
+    prev.disabled=n===0;next.disabled=n===slides.length-1;i=n;
+  }
+
+  next.onclick=function(){go(i+1)};
+  prev.onclick=function(){go(i-1)};
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'||e.key==='ArrowDown'||e.key==='PageDown'||e.key===' ')go(i+1);
+    if(e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='PageUp')go(i-1);
+  });
+
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>60)go(dx<0?i+1:i-1);x0=null;
+  },{passive:true});
+
+  go(0);
+})();
+</script>
+</body>
+</html>
